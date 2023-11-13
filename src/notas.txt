@@ -1,0 +1,89 @@
+      { /*<NavBar/>
+      <ItemListContainer  greeting={"Bienvenidos a Nautica Outdoor"}/>
+      <LayOut > 
+      <Card title={"Card2"} message={"Datos de card2"} imageUrl={"https://cdn.pixabay.com/photo/2023/10/01/03/31/candles-8286709_1280.jpg"} />
+      <Card title={"Card2"} message={"Datos de card2"} imageUrl={"https://cdn.pixabay.com/photo/2023/10/01/03/31/candles-8286709_1280.jpg"} />
+      <Card title={"Card2"} message={"Datos de card2"} imageUrl={"https://cdn.pixabay.com/photo/2023/10/01/03/31/candles-8286709_1280.jpg"} />
+      <Card title={"Card2"} message={"Datos de card2"} imageUrl={"https://cdn.pixabay.com/photo/2023/10/01/03/31/candles-8286709_1280.jpg"} />
+      </LayOut>
+
+
+
+      ---------item ItemListContainer
+
+
+      import { useParams } from "react-router-dom";
+import { Maps } from "../Maps/Maps";
+import styles from "./ItemListContainer.module.css";
+import { useEffect, useState } from "react";
+import { getProducts } from "../../productMock";
+
+export const ItemListContainer = ({ greeting }) => {
+
+const [products, setProducts]= useState([])
+
+useEffect(()=>{
+getProducts()
+.then(resp=>setProducts(resp))
+.catch(error => console.log(error));
+
+},[])
+
+  return (
+    <>
+      <div className={styles.container}>
+        <p className={styles.text}>{greeting}</p>
+      </div>
+      <div className="mt-4 container-fluid d-flex justify-content-center flex-wrap">
+        <Maps/>
+      </div>
+
+    </>
+  );
+};
+
+
+-------------
+item ItemList
+import { useEffect, useState } from "react";
+import { getProducts } from "../../productMock";
+import { Card } from "../Card/Card";
+
+export const ItemList = ({products}) => {
+    const [products, setProducts] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        getProducts()
+            .then((resp) => {
+                {
+                    console.log(resp);
+                    setProducts(resp);
+                    setIsLoading(!isLoading);
+                }
+            })
+
+            .catch((error) => console.log(error));
+    }, []);
+
+    return (
+        <div className="row justify-content-center flex-wrap">
+            {isLoading ? (
+                <p className="text-center">
+                    <span
+                        className="spinner-border"
+                        role="status"
+                        aria-hidden="true"
+                    ></span>{" "}
+                    Cargando...
+                </p>
+            ) : (
+                products.map((product) => (
+                    <Card key={product.id} name={product.name} description={product.description} stock={product.stock} urlImg={product.urlImg} type={product.type} />
+                    
+                ))
+            )}
+        </div>
+    );
+};
+  */}

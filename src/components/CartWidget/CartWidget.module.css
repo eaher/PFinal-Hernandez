@@ -1,0 +1,13 @@
+.cart-widget-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 20px;
+}
+.cart-icon {
+    color: white;
+    margin-right: 20px;
+}
+.cart-count {
+    color: white;
+}

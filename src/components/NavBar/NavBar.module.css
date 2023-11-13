@@ -1,0 +1,20 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+.brand {
+  color: white;
+}
+.cartContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 10px;
+  margin-left: 5px;
+}
+.navbarCustom {
+  background-color: #333;
+}
+.navContainer {
+  background-color: #333;
+}
+

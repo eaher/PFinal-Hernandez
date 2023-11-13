@@ -1,0 +1,20 @@
+.text{
+display: flex;
+flex-wrap: wrap;
+color: beige;
+font-size:xx-large;
+text-align: center ;
+margin-left: 5px;
+margin-right: 5px;
+}
+.container{
+
+    height: 200px;
+    width: auto;
+    background-color: cadetblue;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  
