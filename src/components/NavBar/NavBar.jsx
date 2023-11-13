@@ -13,7 +13,7 @@ export const NavBar = () => {
         <Navbar expand="lg">
 
           <Link to={"/"}>
-            <Navbar.Brand href="#home">Mr Unicorn</Navbar.Brand>
+            <Navbar.Brand href="#home"><img className={styles.logo} src="/src/img/Logo.png" alt="MrUnicorn" /></Navbar.Brand>
           </Link>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav" className="ml-auto">
@@ -25,7 +25,7 @@ export const NavBar = () => {
                 <Nav.Link href="#motores">Motores</Nav.Link>
               </Link>
               <Link to={"/category/embarcacion"}>
-                <Nav.Link href="#motores">Embarcacion</Nav.Link>
+                <Nav.Link href="#motores">Embarcaciones</Nav.Link>
               </Link>
               <Nav.Link href="#contacto">Contacto</Nav.Link>
             </Nav>
