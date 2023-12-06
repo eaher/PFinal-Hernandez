@@ -1,30 +1,28 @@
-import { useState } from "react"
+import { useState, useEffect } from "react";
 import { Button } from "../Button/Button";
 
-export const Count = ({inital= 0, max}) => {
-
-    const [count, setCount]= useState(0);
-    const increment =()=>{
-        if(count === max) {
-            return setCount (count)
+export const Count = ({ initial = 0, max, onIncrement, onDecrement }) => {
+    const [count, setCount] = useState(initial);
+    const increment = () => {
+        if (count < max) {
+            setCount((prevCount) => prevCount + 1);
+            onIncrement(); // Llamo a la función de incremento del padre
         }
-        setCount(count+1)
-    }
-
-    const decrement =()=>{
-        
-        if (count===0){
-            return setCount(0)  
-        }setCount(count-1);
-    }
-
+    };
+    const decrement = () => {
+        if (count > 0) {
+            setCount((prevCount) => prevCount - 1);
+            onDecrement(); // Llamo a la función de decremento del padre
+        }
+    };
+    useEffect(() => {
+        setCount(0); // Reseteo contador cuando cambia el productId
+    }, [max]);
     return (
         <>
-            <Button text="+" functionClick={increment}/>
+            <Button text="+" functionClick={increment} />
             <strong>{count}</strong>
-            <Button text="-" functionClick={decrement}/>
+            <Button text="-" functionClick={decrement} />
         </>
-    )
-}
-
-
+    );
+};

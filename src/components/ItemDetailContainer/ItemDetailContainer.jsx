@@ -1,25 +1,25 @@
-import { useEffect, useState } from "react"
-import { getProduct } from "../../productMock";
+import "./ItemDetailContainer.module.css"
+import { useEffect, useState } from "react";
+import { getProduct } from "../../../src/Config/firebaseConfig";
 import { ItemDetail } from "../ItemDetail/ItemDetail";
 import { useParams } from "react-router-dom";
 
 export const ItemDetailContainer = () => {
+    const [product, setProduct] = useState(null);
+    const { id } = useParams();
 
-    const[product, setProduct] = useState (null);
-    const {id} = useParams ();
+    useEffect(() => {
+        const fetchProduct = async () => {
+            try {
+                const productFromFirebase = await getProduct(id);
+                setProduct(productFromFirebase);
+            } catch (error) {
+                console.error("Error de carga:", error);
+            }
+        };
 
-    useEffect(() =>{
+        fetchProduct();
+    }, [id]);
 
-        getProduct(id)
-            .then (resp => setProduct(resp))
-            .catch (err => console.log (err));
-    },[product])
-
-    return (
-        <div>
-            {product && <ItemDetail{...product}/>}
-        </div>
-    )
-}
-
-
+    return <div>{product && <ItemDetail {...product} />}</div>
+};

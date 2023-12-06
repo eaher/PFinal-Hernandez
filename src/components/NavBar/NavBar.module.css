@@ -19,7 +19,8 @@
 }
 
 .logo {
-  max-height: 150px; 
+  max-height: 80px; 
   width: auto;
+  text-decoration: none;
 }
 

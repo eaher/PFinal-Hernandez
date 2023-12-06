@@ -1,0 +1,13 @@
+.cardBox{
+
+box-shadow: 0 0 5px grey;
+border: none;
+
+}
+
+.button{
+
+    box-shadow: 0 0 3px grey;
+    border: none;
+
+}
